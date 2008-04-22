@@ -1,0 +1,9 @@
+<h1><%= @header %></h1>
+<%= error_messages_for @word %>
+
+<% form_for(@word, :action => url(:word, @word)) do %>
+  <%= text_control :name, :label => 'English Word' %><br />
+  <%= text_control :to_word, :label => 'SpeedWord' %><br />
+  <%= text_area_control :description, :label => 'Description' %><br />
+  <%= submit_button 'Save' %>
+<% end %>

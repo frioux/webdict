@@ -1,0 +1,9 @@
+<h1>Find a Word...</h1>
+<% form_tag(:action => url(:controller => "words", :action => "find", :id => 1)) do %>
+  <%= text_field :name => 'english', :label => 'English Word' %><br />
+  <%= submit_button 'Search' %>
+<% end %>
+<% form_tag(:action => url(:controller => "words", :action => "find", :id => 1)) do %>
+  <%= text_field :name => 'speed', :label => 'SpeedWord' %><br />
+  <%= submit_button 'Search' %>
+<% end %>

@@ -1,0 +1,7 @@
+<h1>List of Words</h1>
+<table><thead><tr><th>English</th><th>Speedword</th><th>Rock</th></tr><thead><tbody>
+<% @words.each do |word| %>
+  <tr><td><%= word.name %></td><td><%= word.to_word %></td><td><%= link_to 'show', url(:word, word)%>, <%= link_to 'edit', url(:edit_word, word) %></td>
+</tr>
+<% end %>
+</tbody></table>
