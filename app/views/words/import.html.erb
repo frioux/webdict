@@ -1,0 +1,5 @@
+<h1>Import Dictionary</h1>
+<% form_tag( :multipart => true , :action => url(:controller => 'words', :action => 'import')) do %>
+  <%= file_field :name => 'file', :label => 'Dictionary File' %>
+  <%= submit_button 'Import Dictionary' %>
+<% end %>

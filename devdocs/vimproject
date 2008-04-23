@@ -28,6 +28,7 @@ Speedword=/home/frew/tmp/webdict/ CD=. in=devdocs/in.vim out=devdocs/out.vim {
       index.html.erb
       show.html.erb
       find.html.erb
+      import.html.erb
     }
    }
   }
