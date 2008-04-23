@@ -24,6 +24,8 @@ Merb::Router.prepare do |r|
   # RESTful routes
   r.resources :words
 
+  r.match('/import').
+    to(:controller => 'words', :action =>'import').name(:import_words)
   r.match('/find').
     to(:controller => 'words', :action =>'find').name(:find_word)
   r.match('/find_speed/:word').
@@ -37,5 +39,5 @@ Merb::Router.prepare do |r|
   r.default_routes
 
   # Change this for your home page to be available at /
-  r.match('/').to(:controller => 'words', :action =>'index')
+  r.match('/').to(:controller => 'words', :action =>'index').name(:index)
 end

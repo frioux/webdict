@@ -60,13 +60,18 @@ class Words < Application
     end
   end
 
+  def delete
+    @word = Word.find(params[:id])
+    @word.destroy!
+    redirect url(:index)
+  end
+
   def import
     if params[:file]
       params[:file][:tempfile].to_a.map {|v| v.chomp.split("\t") }.delete_if {|v| v == [] }.each do |word|
-        speed = word[0]
-        eng = word[1]
-        Word.new(:name => eng, :to_word => speed).save
+        Word.new(:name => word[1], :to_word => word[0]).save
       end
+      return redirect url(:index)
     end
     render
   end
