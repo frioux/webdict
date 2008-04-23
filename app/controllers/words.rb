@@ -2,7 +2,7 @@ class Words < Application
 
   def index
     @title = "Index"
-    @words = Word.find(:all).sort_by { |o| o.name }
+    @words = Word.paginate :page => params[:page], :per_page => 20
     render
   end
 
