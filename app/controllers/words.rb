@@ -13,13 +13,7 @@ class Words < Application
   end
 
   def find
-    if params[:english]
-      return redirect url(:eng_find, :word=>params[:english])
-    elsif params[:speed]
-      return redirect url(:speed_find, :word => params[:speed])
-    else
-      return render
-    end
+    render
   end
 
   def speed_find
