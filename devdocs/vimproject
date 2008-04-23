@@ -1,4 +1,4 @@
-Speedword=/home/frew/tmp/test CD=. in=devdocs/in.vim out=devdocs/out.vim {
+Speedword=/home/frew/tmp/webdict/ CD=. in=devdocs/in.vim out=devdocs/out.vim {
  Rakefile
   sample_development
   app=app{
