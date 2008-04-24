@@ -13,6 +13,7 @@ class Words < Application
   end
 
   def find
+    @title = "Find word"
     render
   end
 
@@ -40,7 +41,7 @@ class Words < Application
     if @word.update_attributes(params[:word])
       redirect url(:word, @word)
     else
-      render :template => 'words/word_form.html'
+      render :template => 'words/form.html'
     end
   end
 
@@ -67,13 +68,12 @@ class Words < Application
   end
 
   def import
-    if params[:file]
-      params[:file][:tempfile].to_a.map {|v| v.chomp.split("\t") }.delete_if {|v| v == [] }.each do |word|
-        Word.new(:name => word[1], :to_word => word[0]).save
-      end
-      return redirect url(:index)
+    @title = "Import Dictionary"
+    return render unless request.post?
+    params[:file][:tempfile].to_a.map {|v| v.chomp.split("\t") }.delete_if {|v| v == [] }.each do |word|
+      Word.new(:name => word[1], :to_word => word[0]).save
     end
-    render
+    redirect(url(:index))
   end
 
 
