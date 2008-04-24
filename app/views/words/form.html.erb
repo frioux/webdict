@@ -7,3 +7,10 @@
   <%= text_area_control :description, :label => 'Description' %><br />
   <%= submit_button 'Save' %>
 <% end %>
+
+<% unless @word.name.nil? %>
+  <% form_tag(:action => url(:controller => "words", :action => "delete")) do %>
+    <%= hidden_field :name => 'word', :value => @word.id %>
+    <%= submit_button 'Delete Word' %>
+  <% end %>
+<% end %>

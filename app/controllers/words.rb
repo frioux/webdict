@@ -61,7 +61,7 @@ class Words < Application
   end
 
   def delete
-    @word = Word.find(params[:id])
+    @word = Word.find(params[:word])
     @word.destroy!
     redirect url(:index)
   end
