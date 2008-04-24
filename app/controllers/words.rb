@@ -2,7 +2,7 @@ class Words < Application
 
   def index
     @title = "Index"
-    @words = Word.paginate :page => params[:page], :per_page => 20
+    @words = Word.paginate :page => params[:page], :per_page => 20, :order => 'name COLLATE NOCASE'
     render
   end
 
