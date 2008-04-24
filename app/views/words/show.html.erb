@@ -1,5 +1,6 @@
 <h1>Word Data</h1>
 English: <%= @word.name %><br />
-Speedwords: <%= @word.to_word %><br />
+Speedword: <%= @word.to_word %><br />
+Speedword breakdown: <%= @word.interword.split("-").map { |v| link_to v, url(:speed_find,:word => v)}.join("-") %><br />
 <% if @word.description %>Description: <%= @word.description %><br /><% end %>
 
