@@ -71,7 +71,7 @@ class Words < Application
     @title = "Import Dictionary"
     return render unless request.post?
     params[:file][:tempfile].to_a.map {|v| v.chomp.split("\t") }.delete_if {|v| v == [] }.each do |word|
-      Word.new(:name => word[1], :to_word => word[0]).save
+      Word.new(:name => word[1], :interword => word[0], :to_word => word[0].delete("-")).save
     end
     redirect(url(:index))
   end

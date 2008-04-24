@@ -3,7 +3,7 @@
 
 <% form_for(@word, :action => url(:word, @word)) do %>
   <%= text_control :name, :label => 'English Word' %><br />
-  <%= text_control :to_word, :label => 'SpeedWord' %><br />
+  <%= text_control :interword, :label => 'SpeedWord' %><br />
   <%= text_area_control :description, :label => 'Description' %><br />
   <%= submit_button 'Save' %>
 <% end %>
