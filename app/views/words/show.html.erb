@@ -3,4 +3,5 @@ English: <%= @word.name %><br />
 Speedword: <%= @word.to_word %><br />
 Speedword breakdown: <%= @word.interword.split("-").map { |v| link_to v, url(:speed_find,:word => v)}.join("-") %><br />
 <% if @word.description %>Description: <%= @word.description %><br /><% end %>
+  <%= link_to 'edit word', url(:edit_word, @word) %>
 

@@ -32,6 +32,10 @@ Merb::Router.prepare do |r|
     to(:controller => 'words', :action =>'speed_find').name(:speed_find)
   r.match('/find_eng/:word').
     to(:controller => 'words', :action =>'eng_find').name(:eng_find)
+  r.match('/search_eng/:word').
+    to(:controller => 'words', :action =>'eng_search').name(:eng_search)
+  r.match('/search_speed/:word').
+    to(:controller => 'words', :action =>'speed_search').name(:speed_search)
   # This is the default route for /:controller/:action/:id
   # This is fine for most cases.  If you're heavily using resource-based
   # routes, you may want to comment/remove this line to prevent

@@ -17,14 +17,37 @@ class Words < Application
     render
   end
 
+  def speed_search
+    @words = Word.all(:to_word.like => "%#{params[:word]}%").paginate :page => params[:page], :per_page => 20, :order => 'name COLLATE NOCASE'
+    @title = params[:word]
+    if @words.size == 1
+      @word = @words.first
+      render :template => 'words/show.html'
+    else
+      render :template => 'words/index.html'
+    end
+  end
+
+  def eng_search
+    @words = Word.all(:name.like => "%#{params[:word]}%").paginate :page => params[:page], :per_page => 20, :order => 'name COLLATE NOCASE'
+    @title = params[:word]
+    render :template => 'words/index.html'
+    if @words.size == 1
+      @word = @words.first
+      render :template => 'words/show.html'
+    else
+      render :template => 'words/index.html'
+    end
+  end
+
   def speed_find
-    @word = Word.find(:first, :conditions => ['to_word = ?', params[:word]])
+    @word = Word.first(:to_word => params[:word])
     @title = @word.to_word
     render :template => 'words/show.html'
   end
 
   def eng_find
-    @word = Word.find(:first, :conditions => ['name = ?', params[:word]])
+    @word = Word.first(:name => params[:word])
     @title = @word.name
     render :template => 'words/show.html'
   end
